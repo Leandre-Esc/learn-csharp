@@ -1,2 +1,4 @@
 /LearnCSharp.slnx
 .idea/
+**/bin/
+**/obj/
