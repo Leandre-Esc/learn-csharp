@@ -23,4 +23,16 @@ public class User
         Email = email;
         Password = password;
     }
+
+    public void Update(
+        string? firstName,
+        string? lastName,
+        string username,
+        string email)
+    {
+        FirstName = firstName;
+        LastName = lastName;
+        Username = username;
+        Email = email;
+    }
 }
