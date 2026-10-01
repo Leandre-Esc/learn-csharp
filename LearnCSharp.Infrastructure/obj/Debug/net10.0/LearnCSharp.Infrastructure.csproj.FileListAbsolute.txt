@@ -1,0 +1,17 @@
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/bin/Debug/net10.0/LearnCSharp.Infrastructure.deps.json
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/bin/Debug/net10.0/LearnCSharp.Infrastructure.dll
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/bin/Debug/net10.0/LearnCSharp.Infrastructure.pdb
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/bin/Debug/net10.0/LearnCSharp.Application.dll
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/bin/Debug/net10.0/LearnCSharp.Domain.dll
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/bin/Debug/net10.0/LearnCSharp.Application.pdb
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/bin/Debug/net10.0/LearnCSharp.Domain.pdb
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/obj/Debug/net10.0/LearnCSharp.Infrastructure.csproj.AssemblyReference.cache
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/obj/Debug/net10.0/LearnCSharp.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/obj/Debug/net10.0/LearnCSharp.Infrastructure.AssemblyInfoInputs.cache
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/obj/Debug/net10.0/LearnCSharp.Infrastructure.AssemblyInfo.cs
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/obj/Debug/net10.0/LearnCSharp.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/obj/Debug/net10.0/LearnCSh.1990D4FA.Up2Date
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/obj/Debug/net10.0/LearnCSharp.Infrastructure.dll
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/obj/Debug/net10.0/refint/LearnCSharp.Infrastructure.dll
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/obj/Debug/net10.0/LearnCSharp.Infrastructure.pdb
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Infrastructure/obj/Debug/net10.0/ref/LearnCSharp.Infrastructure.dll

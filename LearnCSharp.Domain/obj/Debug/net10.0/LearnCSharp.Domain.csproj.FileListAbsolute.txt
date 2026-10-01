@@ -1,0 +1,11 @@
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Domain/bin/Debug/net10.0/LearnCSharp.Domain.deps.json
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Domain/bin/Debug/net10.0/LearnCSharp.Domain.dll
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Domain/bin/Debug/net10.0/LearnCSharp.Domain.pdb
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Domain/obj/Debug/net10.0/LearnCSharp.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Domain/obj/Debug/net10.0/LearnCSharp.Domain.AssemblyInfoInputs.cache
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Domain/obj/Debug/net10.0/LearnCSharp.Domain.AssemblyInfo.cs
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Domain/obj/Debug/net10.0/LearnCSharp.Domain.csproj.CoreCompileInputs.cache
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Domain/obj/Debug/net10.0/LearnCSharp.Domain.dll
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Domain/obj/Debug/net10.0/refint/LearnCSharp.Domain.dll
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Domain/obj/Debug/net10.0/LearnCSharp.Domain.pdb
+/Users/leandre/Documents/Personal/learn-csharp/LearnCSharp.Domain/obj/Debug/net10.0/ref/LearnCSharp.Domain.dll
