@@ -2,3 +2,4 @@
 .idea/
 **/bin/
 **/obj/
+LearnCSharp.Api/appsettings.json
