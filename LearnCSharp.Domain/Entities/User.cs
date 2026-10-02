@@ -8,6 +8,8 @@ public class User
     public string Username { get; set; }
     public string Email { get; set; }
     public string Password { get; set; }
+    public DateTime CreatedAt { get; private set; }
+    public DateTime UpdatedAt { get; private set; }
 
     public User(
         string? firstName,
@@ -22,6 +24,8 @@ public class User
         Username = username;
         Email = email;
         Password = password;
+        
+        CreatedAt = DateTime.UtcNow;
     }
 
     public void Update(
@@ -34,5 +38,7 @@ public class User
         LastName = lastName;
         Username = username;
         Email = email;
+        
+        UpdatedAt = DateTime.UtcNow;
     }
 }
