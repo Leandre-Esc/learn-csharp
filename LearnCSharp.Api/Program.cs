@@ -15,7 +15,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-
 builder.Services.AddScoped<UserService>();
 
 builder.Services.AddOpenApi();
