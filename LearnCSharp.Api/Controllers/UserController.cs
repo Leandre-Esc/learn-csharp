@@ -1,6 +1,5 @@
 using LearnCSharp.Application.Users.DTOs;
 using LearnCSharp.Application.Users.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LearnCSharp.Api.Controllers;

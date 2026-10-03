@@ -1,3 +1,5 @@
+using LearnCSharp.Application.Auth.Interfaces;
+using LearnCSharp.Application.Auth.Services;
 using LearnCSharp.Application.Users.Interfaces;
 using LearnCSharp.Application.Users.Services;
 using LearnCSharp.Infrastructure.Authentication;
@@ -19,6 +21,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 
 builder.Services.AddOpenApi();
 

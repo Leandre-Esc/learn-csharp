@@ -93,7 +93,6 @@ public class UserService
             user.FirstName,
             user.LastName,
             user.Username,
-            user.Email,
-            user.Password);
+            user.Email);
     }
 }
