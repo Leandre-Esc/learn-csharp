@@ -7,10 +7,12 @@ namespace LearnCSharp.Application.Users.Services;
 public class UserService
 {
     private readonly IUserRepository _repository;
+    private readonly IPasswordHasher _passwordHasher;
 
-    public UserService(IUserRepository repository)
+    public UserService(IUserRepository repository, IPasswordHasher passwordHasher)
     {
         _repository = repository;
+        _passwordHasher = passwordHasher;
     }
     
     public async Task<List<UserDto> > GetAllAsync()
@@ -25,7 +27,7 @@ public class UserService
     public async Task<UserDto?> GetByIdAsync(Guid id)
     {
         var user = await _repository.GetByIdAsync(id);
-        
+
         return user == null
             ? null
             : MapToDto(user);
@@ -35,7 +37,7 @@ public class UserService
     {
         var exist = await _repository.GetByEmailAsync(request.Email);
 
-        if (exist != null)
+        if (exist is not null)
         {
             throw new InvalidOperationException("User with same email already exists");
         }
@@ -46,6 +48,8 @@ public class UserService
             request.UserName,
             request.Email,
             request.Password);
+
+        user.Password = _passwordHasher.Hash(user, request.Password);
         
         await _repository.AddAsync(user);
         
@@ -64,7 +68,7 @@ public class UserService
             request.LastName,
             request.UserName,
             request.Email);
-        
+
         await _repository.UpdateAsync(user);
 
         return true;

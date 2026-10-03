@@ -1,5 +1,6 @@
 using LearnCSharp.Application.Users.Interfaces;
 using LearnCSharp.Application.Users.Services;
+using LearnCSharp.Infrastructure.Authentication;
 using LearnCSharp.Infrastructure.Persistence;
 using LearnCSharp.Infrastructure.Persistence.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 
 builder.Services.AddOpenApi();
 

@@ -26,6 +26,7 @@ public class User
         Password = password;
         
         CreatedAt = DateTime.UtcNow;
+        UpdatedAt = DateTime.UtcNow;
     }
 
     public void Update(
