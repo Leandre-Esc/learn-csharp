@@ -5,5 +5,4 @@ public record UserDto(
     string? FirstName,
     string? LastName,
     string UserName,
-    string Email,
-    string Password);
+    string Email);

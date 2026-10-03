@@ -1,5 +1,6 @@
 using LearnCSharp.Application.Users.DTOs;
 using LearnCSharp.Application.Users.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LearnCSharp.Api.Controllers;
@@ -15,6 +16,7 @@ public class UserController : ControllerBase
         _service = service;
     }
 
+    [Authorize]
     [HttpGet]
     public async Task<ActionResult<List<UserDto>>> GetAll()
     {
@@ -22,6 +24,7 @@ public class UserController : ControllerBase
         return Ok(users);
     }
 
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<ActionResult<UserDto>> GetById(Guid id)
     {
@@ -55,6 +58,7 @@ public class UserController : ControllerBase
         }
     }
 
+    [Authorize]
     [HttpPut("{id}")]
     public async Task<ActionResult> Update(
         Guid id, [FromForm] UpdateUserRequest request)
@@ -67,6 +71,7 @@ public class UserController : ControllerBase
         return NoContent();
     }
 
+    [Authorize]
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(Guid id)
     {
