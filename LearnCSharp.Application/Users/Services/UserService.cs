@@ -70,9 +70,9 @@ public class UserService
         return true;
     }
 
-    public async Task<bool> DeleteAsync(User request)
+    public async Task<bool> DeleteAsync(Guid id)
     {
-        var user = await _repository.GetByIdAsync(request.Id);
+        var user = await _repository.GetByIdAsync(id);
         
         if (user == null)
             return false;
