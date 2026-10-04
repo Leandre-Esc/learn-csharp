@@ -16,7 +16,6 @@ public class UserController : ControllerBase
         _service = service;
     }
 
-    [Authorize]
     [HttpGet]
     public async Task<ActionResult<List<UserDto>>> GetAll()
     {
