@@ -45,7 +45,7 @@ jobs:
       - name: Copy files to VM
         run: |
           rsync -az --delete ./publish/ \
-            "${{ secrets.VM_USER }}@${{ secrets.VM_HOSTS }}:/var/www/learncsharp-api"
+            "${{ secrets.VM_USER }}@${{ secrets.VM_HOST }}:/var/www/learncsharp-api"
           
       - name: Restart service
         run: |
