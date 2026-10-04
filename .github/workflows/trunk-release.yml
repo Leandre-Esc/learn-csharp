@@ -16,6 +16,7 @@ jobs:
           
       - run: dotnet restore LearnCSharp.slnx
       - run: dotnet build LearnCSharp.slnx -c Release --no-restore
+      - run: dotnet test LearnCSharp.slnx -c Release --no-build
   
   deploy:
     needs: test
