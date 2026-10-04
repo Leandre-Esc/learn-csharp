@@ -1,0 +1,53 @@
+name: Trunk Release
+
+on:
+  push: 
+    branches: [release/*]
+    
+jobs: 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+          
+      - run: dotnet restore LearnCSharp.slnx
+      - run: dotnet build LearnCSharp.slnx -c Release --no-restore
+      - run: dotnet test LearnCSharp.slnx -c Release --no-build
+  
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+        
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      
+      - name: Publish
+        run: |
+          dotnet publish LearnCSharp.Api/LearnCSharp.Api.csproj \
+            -c Release \
+            -o ./publish
+      
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VM_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "${{ secrets.VM_HOST }}" >> ~/.ssh/know_hosts
+          
+      - name: Copy files to VM
+        run: |
+          rsync -az --delete ./publish/ \
+            "${{ secrets.VM_USER }}@${{ secrets.VM_HOSTS }}:/var/www/learncsharp-api"
+          
+      - name: Restart service
+        run: |
+          ssh "${{ secrets.VM_USER }}@${{ secrets.VM_HOST }}" \
+            "sudo systemctl restart learncsharp-api"
