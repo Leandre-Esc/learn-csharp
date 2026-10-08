@@ -21,34 +21,21 @@ public class JwtTokenGenerator : IJwtTokenGenerator
     {
         var claims = new[]
         {
-            new Claim(
-                JwtRegisteredClaimNames.Sub,
-                user.Id.ToString()),
-            new Claim(
-                JwtRegisteredClaimNames.Email,
-                user.Email),
-            new Claim(
-                ClaimTypes.NameIdentifier,
-                user.Id.ToString()),
-            new Claim(
-                ClaimTypes.Email,
-                user.Email),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+            new Claim(JwtRegisteredClaimNames.Email, user.Email),
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Email, user.Email),
         };
 
-        var secret = _configuration["Jwt:Secret"]
-                     ?? throw new InvalidOperationException("JWT secret is not configured");
-
-        var ket = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));
-
-        var credentials = new SigningCredentials(
-            ket,
-            SecurityAlgorithms.HmacSha256);
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtOptions:Key"]));
+        var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(
-            issuer: _configuration["Jwt:Issuer"],
-            audience: _configuration["Jwt:Audience"],
+            issuer: _configuration["JwtOptions:Issuer"],
+            audience: _configuration["JwtOptions:Audience"],
             claims: claims,
-            expires: DateTime.UtcNow.AddMinutes(60),
+            expires: DateTime.Now.AddMinutes(60),
             signingCredentials: credentials);
         
         return new JwtSecurityTokenHandler().WriteToken(token);
