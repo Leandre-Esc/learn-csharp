@@ -1,4 +1,5 @@
 using System.Text;
+using LearnCSharp.Api.Endpoints;
 using LearnCSharp.Application.Auth.Interfaces;
 using LearnCSharp.Application.Auth.Services;
 using LearnCSharp.Application.Users.Interfaces;
@@ -14,6 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+// CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -25,6 +27,7 @@ builder.Services.AddCors(options =>
     });
 });
 
+// DB CONNECTION
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseNpgsql(
@@ -38,6 +41,7 @@ builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 
+// JWT SETTINGS
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -76,6 +80,6 @@ app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapGroup("/api/users").MapUserEndpoints();
 
 app.Run();
