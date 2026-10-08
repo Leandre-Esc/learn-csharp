@@ -81,5 +81,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapGroup("/api/users").MapUserEndpoints();
+app.MapGroup("/api/auth").MapAuthEndpoints();
 
 app.Run();
