@@ -43,7 +43,11 @@ builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 
 // JWT SETTINGS
 builder.Services
-    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
     .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
@@ -53,13 +57,9 @@ builder.Services
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
 
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-
-            IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(
-                    builder.Configuration["Jwt:Secret"]!))
+            ValidIssuer = builder.Configuration.GetSection("JwtOptions:Issuer").Value,
+            ValidAudience = builder.Configuration.GetSection("JwtOptions:Audience").Value,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("JwtOptions:Key").Value))
         };
     });
 builder.Services.AddAuthorization();

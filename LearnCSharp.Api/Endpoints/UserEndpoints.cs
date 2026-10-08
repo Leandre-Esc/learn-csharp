@@ -11,7 +11,8 @@ public static class UserEndpoints
         {
             var users = await service.GetAllAsync();
             return Results.Ok(users);
-        });
+        })
+        .RequireAuthorization();
 
         group.MapGet("/{id:guid}", async (Guid id, UserService service) =>
         {
